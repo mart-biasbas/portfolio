@@ -1,65 +1,93 @@
+/* Update `body` to use Flexbox for a flexible two-column layout */
 body, html {
   margin: 0;
   padding: 0;
+  background-color: #2b3137;
+  display: flex; /* This is the key change */
 }
+
+/* Sidebar */
 .sidebar {
-    width: 400px;
-    padding: 20px;
-    background-color:#24292e;
-    color: #f8f8f8;
-    font-family: Arial, sans-serif;
-    position: fixed; 
-    top: 0;
-    left: 0;
-    height: 100vh; 
-    justify-content: center;
-    font-size: 15px;
+  width: 400px; /* Use a fixed width for desktop */
+  padding: 20px;
+  background-color: #24292e;
+  color: #f8f8f8;
+  font-family: Arial, sans-serif;
+  position: fixed; 
+  top: 0;
+  left: 0;
+  height: 100vh;
+  font-size: 15px;
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* Centers items horizontally */
+  justify-content: center; /* Centers items vertically (adjust as needed) */
 }
 
-.sidebar h1{
-    text-align: center;
+/* Profile section for vertical spacing */
+.profile-section {
+    margin-bottom: 20px;
 }
 
-.sidebar h2 {
-    text-align: center;
-    font-size: large; 
-}
-
+/* Profile picture */
 .profile-pic {
-    width: 250px;       
-    height: 250px;     
-    border-radius: 50%; 
-    object-fit: cover; 
-    display: block;  
-    margin: 20px auto;
+  width: 250px;
+  height: 250px;
+  border-radius: 50%;
+  object-fit: cover;
+  display: block;
+  margin-bottom: 20px; /* Add margin to the bottom */
 }
 
+/* Main content */
 .content {
-    margin-left: 440px; /* sidebar width + spacing */
-    padding: 20px;
-    font-family: Arial, sans-serif;
-    color: #fafbfc;
-    background-color: #2b3137;
+  flex: 1; /* This makes the content take up the remaining space */
+  padding: 20px;
+  font-family: Arial, sans-serif;
+  color: #fafbfc;
+  background-color: #2b3137;
+  margin-left: 440px; /* This margin-left is still needed for desktop */
 }
 
+/* Consistent spacing for all headers */
+.content h2, .content h3 {
+    margin-top: 40px;
+    margin-bottom: 10px;
+}
+
+/* Contact row */
 .sidebar .contact ul {
-    display: flex;
-    flex-wrap: nowrap; /* keeps all items in one row */
-    list-style: none;
-    padding: 0;
-    margin: 0;
-    gap: 15px; /* space between items */
-    justify-content: center; /* center the row horizontally */
-    align-items: center; /* center items vertically */
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-wrap: wrap; /* allows wrapping on small screens */
+  justify-content: center;
+  align-items: center;
+  gap: 15px;
 }
 
 .sidebar .contact li {
-    font-size: 11px;
-    display: flex;
-    align-items: center;
-    gap: 10px; /* space between logo/icon and text */
+  font-size: 11px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
 }
 
+/* RESPONSIVE ADJUSTMENTS */
+@media (max-width: 840px) {
+  body {
+    flex-direction: column; /* Stacks the sidebar and content vertically */
+  }
 
+  .sidebar {
+    position: relative; /* Removes fixed position for mobile */
+    width: 100%; /* Makes sidebar full width */
+    height: auto;
+    max-width: none; /* Removes the max-width restriction */
+  }
 
-
+  .content {
+    margin-left: 0; /* Removes the margin, making it full-width */
+  }
+}
