@@ -6,6 +6,12 @@ body, html {
   display: flex; /* This is the key change */
 }
 
+hr {
+    border: none;          /* remove default border */
+    border-top: 1px solid #ccc; /* thin line */
+    margin-top: -5px;        /* vertical spacing */
+}
+
 /* Sidebar */
 .sidebar {
     width: 400px; /* Use a fixed width for desktop */
@@ -23,6 +29,10 @@ body, html {
     align-items: center;
     justify-content: center; /* Centers items vertically (adjust as needed) */
     border: #24292e;
+}
+
+.role {
+    font-size: 18px;
 }
 
 .sidebar p, 
