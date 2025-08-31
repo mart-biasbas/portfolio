@@ -8,25 +8,36 @@ body, html {
 
 /* Sidebar */
 .sidebar {
-  width: 400px; /* Use a fixed width for desktop */
-  padding: 20px;
-  background-color: #24292e;
-  color: #f8f8f8;
-  font-family: Arial, sans-serif;
-  position: fixed; 
-  top: 0;
-  left: 0;
-  height: 100vh;
-  font-size: 15px;
-  display: flex;
-  flex-direction: column;
-  align-items: center; /* Centers items horizontally */
-  justify-content: center; /* Centers items vertically (adjust as needed) */
+    width: 400px; /* Use a fixed width for desktop */
+    padding: 20px;
+    background-color: #24292e;
+    color: #f8f8f8;
+    font-family: Arial, sans-serif;
+    position: fixed; 
+    top: 0;
+    left: 0;
+    height: 100vh;
+    font-size: 15px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center; /* Centers items vertically (adjust as needed) */
+    border: #24292e;
+}
+
+.sidebar p, 
+.sidebar h3 {
+    width: 100%;      /* full width of sidebar */
+    text-align: left;  /* align text to the left */
+    margin: 5px 0;    /* optional spacing between lines */
 }
 
 /* Profile section for vertical spacing */
-.profile-section {
-    margin-bottom: 20px;
+.profile {
+  display: flex; /* Make the container a flexbox */
+  flex-direction: column; /* Stack the children vertically */
+  align-items: center; /* This centers all children horizontally */
+  margin-bottom: 20px;
 }
 
 /* Profile picture */
@@ -36,17 +47,18 @@ body, html {
   border-radius: 50%;
   object-fit: cover;
   display: block;
-  margin-bottom: 20px; /* Add margin to the bottom */
+  margin-bottom: 20px; /* This adds space below the image */
 }
 
 /* Main content */
 .content {
-  flex: 1; /* This makes the content take up the remaining space */
-  padding: 20px;
-  font-family: Arial, sans-serif;
-  color: #fafbfc;
-  background-color: #2b3137;
-  margin-left: 440px; /* This margin-left is still needed for desktop */
+    flex: 1; /* This makes the content take up the remaining space */
+    padding: 20px;
+    font-family: Arial, sans-serif;
+    color: #fafbfc;
+    font-size: 15px;
+    background-color: #2b3137;
+    margin-left: 440px; /* This margin-left is still needed for desktop */
 }
 
 /* Consistent spacing for all headers */
@@ -56,38 +68,112 @@ body, html {
 }
 
 /* Contact row */
-.sidebar .contact ul {
-  list-style: none;
-  padding: 0;
-  margin: 0;
-  display: flex;
-  flex-wrap: wrap; /* allows wrapping on small screens */
-  justify-content: center;
-  align-items: center;
-  gap: 15px;
+.contact ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-wrap: wrap; /* allows wrapping on small screens */
+    justify-content: center;
+    align-items: center;
+    gap: 15px;
 }
 
-.sidebar .contact li {
-  font-size: 11px;
-  display: flex;
-  align-items: center;
-  gap: 10px;
+.contact li {
+    font-size: 11px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+/* Skills list */
+.skills {
+    align-self: stretch; /* make the skills section take full width of sidebar */
+}
+
+.skills ul {
+    list-style: none;    /* remove bullets */
+    padding-left: 0;     /* remove any left padding */
+    margin: 0;           /* remove default margin */
+    width: 100%;         /* take full width of sidebar */
+}
+
+.skills li {
+    margin-bottom: 8px;  /* spacing between items */
+    text-align: left;    /* align text to the left */
+}
+
+.content h1 {
+    font-size: 28px;
+}
+
+.content h2 {
+    font-size: 22px;
+    margin-bottom: -2px;
+    margin-top: 10px;
+}
+
+.client-experience {
+    padding-left: 20px;
+}
+
+.client-experience h2{
+    font-size: 18px;
+    margin-top: -2px;
+    margin-bottom: -2px;
+}
+
+.client-experience .company {
+    font-weight: normal;
+    font-size: 15px;
+}
+
+.company {
+    font-weight: normal;
+    font-size: 16px;
+}
+
+.date {
+    float: right;
+    font-weight: normal;
+}
+
+.education h2 {
+    font-size: 18px;
+}
+
+.education h3 {
+    font-size: 16px; 
+    margin-top: 2px;
+}
+
+.certifications ul {
+    list-style: none;    /* remove bullets */
+    padding-left: 0;     /* remove any left padding */
+    margin: 0;           /* remove default margin */
+    width: 100%;         /* take full width of sidebar */
+}
+
+.certifications li {
+    margin-bottom: 8px;  /* spacing between items */
+    text-align: left;    /* align text to the left */
 }
 
 /* RESPONSIVE ADJUSTMENTS */
 @media (max-width: 840px) {
-  body {
+body {
     flex-direction: column; /* Stacks the sidebar and content vertically */
-  }
+}
 
-  .sidebar {
+
+.sidebar {
     position: relative; /* Removes fixed position for mobile */
     width: 100%; /* Makes sidebar full width */
     height: auto;
     max-width: none; /* Removes the max-width restriction */
-  }
+}
 
-  .content {
-    margin-left: 0; /* Removes the margin, making it full-width */
-  }
+.content {
+margin-left: 0; /* Removes the margin, making it full-width */
+}
 }
