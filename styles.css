@@ -3,7 +3,7 @@ body, html {
   margin: 0;
   padding: 0;
   background-color: #2b3137;
-  display: flex; /* This is the key change */
+  display: flex;
 }
 
 hr {
