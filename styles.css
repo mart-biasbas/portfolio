@@ -1,0 +1,65 @@
+body, html {
+  margin: 0;
+  padding: 0;
+}
+.sidebar {
+    width: 400px;
+    padding: 20px;
+    background-color:#24292e;
+    color: #f8f8f8;
+    font-family: Arial, sans-serif;
+    position: fixed; 
+    top: 0;
+    left: 0;
+    height: 100vh; 
+    justify-content: center;
+    font-size: 15px;
+}
+
+.sidebar h1{
+    text-align: center;
+}
+
+.sidebar h2 {
+    text-align: center;
+    font-size: large; 
+}
+
+.profile-pic {
+    width: 250px;       
+    height: 250px;     
+    border-radius: 50%; 
+    object-fit: cover; 
+    display: block;  
+    margin: 20px auto;
+}
+
+.content {
+    margin-left: 440px; /* sidebar width + spacing */
+    padding: 20px;
+    font-family: Arial, sans-serif;
+    color: #fafbfc;
+    background-color: #2b3137;
+}
+
+.sidebar .contact ul {
+    display: flex;
+    flex-wrap: nowrap; /* keeps all items in one row */
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    gap: 15px; /* space between items */
+    justify-content: center; /* center the row horizontally */
+    align-items: center; /* center items vertically */
+}
+
+.sidebar .contact li {
+    font-size: 11px;
+    display: flex;
+    align-items: center;
+    gap: 10px; /* space between logo/icon and text */
+}
+
+
+
+
