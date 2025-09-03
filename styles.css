@@ -183,6 +183,6 @@ body {
 }
 
 .content {
-margin-left: 0; /* Removes the margin, making it full-width */
+    margin-left: 0; /* Removes the margin, making it full-width */
 }
 }
