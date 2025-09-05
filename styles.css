@@ -1,9 +1,12 @@
 /* Update `body` to use Flexbox for a flexible two-column layout */
 body, html {
-  margin: 0;
-  padding: 0;
-  background-color: #24292e;
-  display: flex;
+    margin: 0;
+    padding: 0;
+    background-color: #24292e;
+    display: flex;
+    overflow-x: hidden ;
+    width: 100%;
+    object-fit: cover;
 }
 
 hr {
@@ -14,8 +17,9 @@ hr {
 
 /* Sidebar */
 .sidebar {
-    width: 400px; /* Use a fixed width for desktop */
-    padding: 20px;
+    width: 25%;                  /* 25% of viewport width */
+    min-width: 200px;            /* optional: prevents too small sidebar */
+    padding: 10px;
     background-color: #2b3137;
     color: #f8f8f8;
     font-family: Arial, sans-serif;
@@ -27,8 +31,8 @@ hr {
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: center; /* Centers items vertically (adjust as needed) */
-    border: #24292e;
+    justify-content: flex-start; /* align items from top */
+    box-sizing: border-box;      /* include padding in width */
     text-align: center;
 }
 
@@ -63,19 +67,25 @@ hr {
 
 /* Main content */
 .content {
-    padding: 20px;
     font-family: Arial, sans-serif;
     color: #fafbfc;
     font-size: 15px;
+    padding: 20px;
     background-color: #24292e;
-    margin-left: 440px; /* This margin-left is still needed for desktop */
+    margin-left: 25%;            /* starts after sidebar */
+    width: calc(100% - 25%); /* fills remaining space */
+    box-sizing: border-box;      /* include padding in width/height */
+    overflow-y: auto;            /* scroll if content is taller than viewport */
 }
 
 .projects {
-  padding: 20px 20px 60px 20px;
-  margin-bottom: 60px;
-  text-align: center;
-  align-items: center;
+    padding: 0;
+    margin-bottom: 60px;
+    text-align: center;
+    align-items: center;
+    width: 100%;         /* remaining space for content */
+    border: none; /* cleaner without outer border */
+    overflow-x: auto;    /* enable vertical scrolling */  
 }
 
 .projects h1 {
@@ -90,26 +100,37 @@ hr {
 }
 
 .projects-grid {
-  display: grid;
-  padding-top: 30px;
-  text-align: center;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  gap: 20px;
+  display: flex;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); /* responsive columns */
+  gap: 20px; /* spacing between cards */
+  padding: 20px;
+  height: 100%;       /* full height of container */
+  overflow-y: auto;   /* enable vertical scroll */
+  box-sizing: border-box;
 }
 
+/* Firefox scrollbar */
+.projects-grid {
+  scrollbar-width: thin;
+  scrollbar-color: #fafbfc #2b3137;
+}
+
+
 .project-card {
+  flex: 0 0 280px; /* fixed width for consistent scroll */
   background-color: #2b3137;
   padding: 20px;
   border-radius: 10px;
   box-shadow: 0px 2px 8px rgba(0,0,0,0.2);
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  transition: border 0.2s ease, box-shadow 0.2s ease;
   text-align: center;
-  border: 1px solid #fafbfc; /* added white border */
+  border: 1px solid transparent; /* default no border */
+  height: 150px;
+  box-sizing: border-box;  /* include padding in width/height */
 }
 
-
 .project-card:hover {
-  transform: translateY(-5px);
+  border: 1px solid #0d74e7; /* blue border on hover */
   box-shadow: 0px 4px 12px rgba(0,0,0,0.3);
 }
 
